@@ -6,19 +6,19 @@
 #include <algorithm>
 
 class Tree {
-public:
-    Tree(std::vector<char> nums) :root(nullptr) {
+ public:
+    explicit Tree(std::vector<char> nums) :root(nullptr) {
         MakeTree(nums);
     }
     std::vector<std::vector<char>> getPerm() const {
         return permutations;
     }
 
-private:
+ private:
     struct Node {
         char symbol;
         std::vector<Node*> descen;
-        Node(char sym = '\0') :symbol(sym) {}
+        explicit Node(char sym = '\0') :symbol(sym) {}
     };
     Node* root;
     std::vector<std::vector<char>> permutations;
